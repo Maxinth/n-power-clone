@@ -1,6 +1,8 @@
 footer {
   width: 100%;
   background: #f3f2f2;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
 }
 .footer {
   max-width: 1200px;
@@ -17,6 +19,7 @@ footer {
   padding-bottom: 0.5rem;
   color: hsl(0, 0%, 34%);
   line-height: 1.4;
+  font-weight: bolder;
 }
 
 .footer > p span {

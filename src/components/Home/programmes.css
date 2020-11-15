@@ -1,0 +1,125 @@
+.programmes {
+  background-color: #fff;
+  /* padding-top: 5rem; */
+}
+
+.programmes__list a {
+  text-decoration: none;
+  color: #013125;
+  display: inline-block;
+}
+.programmes__header {
+  margin-top: 4.5rem;
+  width: 100%;
+  text-align: center;
+  background: #013125;
+  color: #fff;
+  padding: 3rem 1rem;
+  font-family: "Lato";
+  padding: 7rem 1rem;
+}
+
+.programmes__header + a {
+  display: inline-block;
+  margin-bottom: 58rem;
+}
+.programmes__list {
+  max-width: 1200px;
+  padding: 5rem 2rem 1rem 1rem;
+  margin: 0 auto;
+  height: 100%;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(244px, 1fr)); */
+  max-height: 700px;
+  margin-bottom: 3rem;
+  text-decoration: none;
+}
+.programme__card {
+  background-color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+
+  transition: all 0.2s ease-out;
+  box-shadow: -0px 0px 5px gray;
+  min-height: 380px;
+  border: none;
+}
+
+.programme__card:hover {
+  background: #3db54a;
+  color: #fff;
+
+  box-shadow: unset;
+}
+
+.programme__card h2 {
+  padding-bottom: 1.4rem;
+  font-family: "Raleway";
+  display: flex;
+  /* align-items: center; */
+}
+
+.programme__card h2 span {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+
+.programme__card h2 svg {
+  font-size: 3rem;
+  color: #3db54a;
+}
+
+.programme__card:hover h2 svg {
+  color: #fff;
+}
+
+.programme__cardDetails {
+  line-height: 1.5;
+  font-family: "Lato";
+  padding-bottom: 0.7rem;
+  display: grid;
+  grid-template-rows: repeat(2, 0.2fr);
+}
+
+.programme__cardDetails h5 {
+  align-self: end;
+}
+.programmes__list + footer {
+  margin-top: 63rem;
+}
+
+.programme__cardInfo {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* .programme__cardInfo span:first-child {
+  font-size: 3rem;
+} */
+@media (min-width: 576px) {
+  .programmes__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(244px, 1fr));
+    /* grid-template-rows: repeat(2, minmax(200px, 1fr)); */
+  }
+  .programmes__list + footer {
+    margin-top: 14rem;
+  }
+  .programmes__header {
+    font-size: 2rem;
+  }
+
+  .programmes__header + a {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .programmes__list + footer {
+    margin-top: 12rem;
+  }
+}
+@media (min-width: 1024px) {
+  .programmes__list + footer {
+    margin-top: 0.5rem;
+  }
+}

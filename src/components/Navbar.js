@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "./assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "./navbar.css";
-
 const Navbar = () => {
-  const [page, setPage] = useState("home");
+  const location = useLocation();
 
-  const toggleActiveClass = (currentPage) => {
-    return page === currentPage ? "isActive" : "";
-  };
   return (
     <nav className="nav">
       <header>
         <div className="nav__imageContainer">
-          <Link onClick={() => setPage("home")} to="/site">
+          <Link to="/site">
             <img src={logo} alt="site-logo" className="nav__siteLogo" />
           </Link>
 
@@ -24,15 +20,23 @@ const Navbar = () => {
         </div>
 
         <ul className="nav__links">
-          <li className={`nav__list ${toggleActiveClass("home")}`}>
-            <Link onClick={() => setPage("home")} to="/site">
+          <li className={`nav__list `}>
+            <NavLink
+              to="/site"
+              activeClassName={location.pathname === "/site" ? "isActive" : ""}
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
-          <li className={`nav__list ${toggleActiveClass("programmes")}`}>
-            <Link onClick={() => setPage("programmes")} to="/site/programmes">
+          <li className={`nav__list`}>
+            <NavLink
+              to="/site/programmes"
+              activeClassName={
+                location.pathname === "/site/programmes" ? "isActive" : ""
+              }
+            >
               Programmes
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </header>
@@ -41,3 +45,35 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+/*  
+ in order to determine the active link
+ i have imported useLocation from react-router-dom , called it and stored its return value in 
+a variable called location
+
+the NavLink component imported from react-router-dom provides an activeClassName prop whose
+value I have set based on the pathname the page is currently on.
+
+the isActive class is defined in the css
+
+when the activeClassName is isActive, we get the current link, otherwise the link has no border-bottom-color
+
+
+=======
+
+const location = useLocation();
+console.log(location); // to see the properties available
+
+
+<NavLink
+    to="/pathToVisit"
+    activeClassName={ location.pathname === "/pathToVisit" ? "isActive" : ""   } >
+        PageLinkName
+</NavLink>
+           
+           
+
+
+
+
+*/

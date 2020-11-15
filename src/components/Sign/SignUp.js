@@ -4,7 +4,7 @@ import LeadingPart from "./LeadingPart";
 import "./signup.css";
 const SignUp = () => {
   return (
-    <section className="signUp">
+    <section className="sign-container">
       <LeadingPart />
       <FinalPart
         title="Create Profile"
@@ -15,6 +15,10 @@ const SignUp = () => {
         buttonValue="Register"
         msg="Continue Application?"
         proceed="Log into Portal"
+        goTo="/login"
+        showPassField={true}
+        // fromForm="You are registered"
+       
       />
     </section>
   );

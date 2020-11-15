@@ -1,9 +1,14 @@
 import React from "react";
 import fourPeople from "../assets/people.png";
 import "./signup.css";
+
 const LeadingPart = () => {
   return (
-    <div className="leadingPart">
+    <div
+      className="leadingPart"
+      // {...variantProps}
+      // variants={leadingPartVariant}
+    >
       <img
         src="https://npower.fmhds.gov.ng/uploads/logo.svg"
         alt=" Nigerian N-Power"

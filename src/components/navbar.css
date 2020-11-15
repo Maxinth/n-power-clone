@@ -6,6 +6,7 @@
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: 10;
   /* margin-bottom: 6rem; */
 }
 
@@ -50,7 +51,7 @@
   font-family: "Raleway";
   font-weight: bolder;
   color: hsl(0, 0%, 40%);
-  padding: 0.8rem 1rem 1.2rem;
+  padding: 1rem 1rem 1.5rem;
 }
 
 .nav__list {
@@ -59,14 +60,15 @@
   padding: 0.1rem 0;
   text-align: center;
 }
-.nav__list.isActive {
+
+.nav__list a.isActive {
+  color: hsl(120, 100%, 41%);
   border-bottom: 4px solid var(--bottom-border-color);
 }
 
-.nav__list.isActive a {
-  color: hsl(120, 100%, 41%);
+.nav__list a:hover {
+  color: #3db54a;
 }
-
 /* LARGER SCREENS */
 
 @media (min-width: 768px) {

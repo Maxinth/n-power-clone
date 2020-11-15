@@ -1,34 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-const SignForm = ({ buttonValue, msg, proceed, padding }) => {
-  // const alignWell = padding ? {`paddingBottom: ${padding}`} : ''
+import { motion } from "framer-motion";
+import { flickerForm, variantProps } from "../motionVariants/varSign";
+import FeedBack from "../FeedBack";
+const SignForm = ({
+  buttonValue,
+  msg,
+  proceed,
+  padding,
+  goTo,
+  showPassField,
+}) => {
+  const [data, setData] = useState({ mail: "", password: "" });
+  const [showFeedBack, setShowFeedBack] = useState(false);
+
+  const handleChange = (e) => {
+    const newData = { ...data, [e.target.id]: e.target.value };
+    setData(newData);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!data.mail || !data.password) {
+      setShowFeedBack(true);
+      setTimeout(() => {
+        setShowFeedBack(false);
+      }, 3000);
+    }
+  };
   return (
     <>
-      <div
+      <motion.div
+        variants={flickerForm}
+        {...variantProps}
         className="signForm"
         style={{
           paddingBottom: `${padding ? padding : ""}`,
           paddingTop: `${padding ? padding : ""}`,
         }}
       >
-        <form>
+        {showFeedBack && <FeedBack {...data} />}
+        <form onSubmit={handleSubmit}>
           <label htmlFor="mail">Email Address</label>
-          <input type="email" id="mail" />
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" />
+          <input
+            type="email"
+            id="mail"
+            value={data.mail}
+            onChange={handleChange}
+          />
+
+          {showPassField && (
+            <>
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                value={data.password}
+                onChange={handleChange}
+              />
+            </>
+          )}
+
           <input type="submit" value={buttonValue} />
         </form>
         <p className="signForm__nextSteps">
           {msg}
-          <Link to="/login">{proceed}</Link>
+          <Link to={goTo}>{proceed}</Link>
         </p>
-      </div>
-      {/* <p className="signForm__nextSteps">
-        {msg}
-        <Link to="/login">{proceed}</Link>
-      </p> */}
+      </motion.div>
+
       <p className="copyright">
-        &copy; Copyright 2020, Federal Republic of Nigeria . All rights reserved
+        &copy; Copyright 2020, Federal Republic of Nigeria. All rights reserved
       </p>
     </>
   );

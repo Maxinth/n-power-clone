@@ -1,0 +1,53 @@
+.feedback-container {
+  background: #e74c3c;
+  color: #fff;
+  border-radius: 10px;
+
+  border: 1px solid #fff;
+  width: 300px;
+  margin: 0 auto;
+  padding: 0.8rem 1rem;
+  /* relative to finalPart class */
+  position: fixed;
+  top: 1px;
+  left: calc(1px + 15vw);
+}
+
+.feedback {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.feedback span {
+  font-size: 0.8rem;
+  padding-left: 0.8rem;
+  /* text-align: center; */
+  width: 100%;
+  display: inline-block;
+}
+
+.feedback svg {
+  font-size: 1.3rem !important;
+}
+
+@media (min-width: 700px) {
+  .feedback-container {
+    left: calc(120px + 20vw);
+  }
+}
+@media (min-width: 900px) {
+  .feedback-container {
+    left: calc(290px + 20vw);
+  }
+}
+@media (min-width: 1000px) {
+  .feedback-container {
+    left: calc(290px + 30vw);
+  }
+}
+@media (min-width: 1200px) {
+  .feedback-container {
+    left: calc(530px + 33vw);
+  }
+}

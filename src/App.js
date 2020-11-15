@@ -11,6 +11,7 @@ import Home from "./components/Home/Home";
 import Programmes from "./components/Home/Programmes";
 import SignUp from "./components/Sign/SignUp";
 import Login from "./components/Sign/Login";
+import ForgotPassword from "./components/Sign/ForgotPassword";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Route path="/site/programmes" component={Programmes} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+
           <Route path="/site" exact>
             <Home />
           </Route>

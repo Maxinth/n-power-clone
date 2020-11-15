@@ -8,6 +8,8 @@ import CheckBoxSharpIcon from "@material-ui/icons/CheckBoxSharp";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import * as home from "../motionVariants/varHome";
 
 const Home = () => {
   const [checkBox, setCheckBox] = useState(false);
@@ -18,25 +20,46 @@ const Home = () => {
       <section className="home">
         <div className="home__statement">
           <div className="home__statementLeft">
-            <h2>
-              Welcome to the <br />
+            <motion.h2
+              variants={home.homeContainerVariant(0.2)}
+              initial="hidden"
+              animate="visible"
+            >
+              Welcome to the{" "}
+              <motion.br
+                variants={home.slideBreak}
+                initial="hidden"
+                animate="visible"
+              />
               N-Power Programme
-            </h2>
+            </motion.h2>
             <hr />
-            <p>
+            <motion.p
+              variants={home.leftParagraph(0.5)}
+              initial="hidden"
+              animate="visible"
+            >
               Decades of neglect on the right drivers of job creation has left a
               huge number of our youths without the skill, job, or economic
               means to survive. President Muhammadu Buhari's led government is
               making deliberate efforts to address this vacuum through various
               social intervention programmes.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              variants={home.leftParagraph(0.8)}
+              initial="hidden"
+              animate="visible"
+            >
               The COVID-19 pandemic has unravelled a number of challenges but
               it’s our duty as Government to intervene and support young people
               who are unable to find jobs and accelerate efforts to provide an
               enabling environment for businesses to create sustainable jobs.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              variants={home.leftParagraph(1.0)}
+              initial="hidden"
+              animate="visible"
+            >
               Everyone deserves an opportunity to rise no matter their
               circumstance, educational background or belief.
               <span className="anomaly">
@@ -45,28 +68,45 @@ const Home = () => {
                 financial literacy, communication, digital skills amongst a host
                 of others.
               </span>
-            </p>
+            </motion.p>
           </div>
 
           <div className="home__statementRight">
-            <p>
+            <motion.p
+              variants={home.rightParagraph(0.2)}
+              initial="hidden"
+              animate="visible"
+            >
               Since inception, N-Power has trained over 500,000 beneficiaries in
               various vocational areas - farming, agro-processing, financial
               literacy, communication, digital skills amongst a host of others.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              variants={home.rightParagraph(0.8)}
+              initial="hidden"
+              animate="visible"
+            >
               About 109,823 beneficiaries have gone on to set up businesses
               within their communities as a result of their training and time in
               the N-Power Programme. We are proud of the results so far and look
               forward to impacting even more Nigerians as we commence efforts to
               register a new batch of beneficiaries.
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              variants={home.rightParagraph(1.2)}
+              initial="hidden"
+              animate="visible"
+            >
               My team and I at the Ministry are committed to this programme and
               all efforts geared towards supporting the vulnerable. We are
               stronger together and we will make it through these trying times.
-            </p>
-            <div className="home__mini">
+            </motion.p>
+            <motion.div
+              className="home__mini"
+              variants={home.miniVariant}
+              initial="hidden"
+              animate="visible"
+            >
               <section>
                 <div>
                   <h5>Sadiya Umar Farouq</h5>
@@ -80,14 +120,18 @@ const Home = () => {
               <div className="home__miniImage">
                 <img src={minister} alt="madam-sadiya not showing" />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       <section className="homeTwo">
         <div className="homeTwo__imgContainer">
-          <img src={beneficiaries} alt="beneficiaries" />
+          <motion.img
+            src={beneficiaries}
+            alt="beneficiaries"
+            whileHover={{ scale: 1.1 }}
+          />
         </div>
         <div className="homeTwo__programmeDetails">
           <h3>Applying for the N-Power Programme</h3>
@@ -139,12 +183,32 @@ const Home = () => {
                   />
                 )}
               </>
-              <span>I AGREE</span>
+              <span>
+                {checkBox ? (
+                  "I AGREE"
+                ) : (
+                  <strong>Do you agree with these terms?</strong>
+                )}
+              </span>
             </div>
             <Link to="/signup" className="sUp">
-              <button className={isChecked} disabled={!checkBox}>
-                Apply For N-Power
-              </button>
+              <AnimatePresence>
+                {checkBox && (
+                  <motion.button
+                    variants={home.ctaButton}
+                    initial="hidden"
+                    animate="visible"
+                    exit={{
+                      opacity: 0,
+                    }}
+                    whileHover={checkBox && "hover"}
+                    className={isChecked}
+                    disabled={!checkBox}
+                  >
+                    Apply For N-Power
+                  </motion.button>
+                )}
+              </AnimatePresence>
             </Link>
           </form>
         </div>

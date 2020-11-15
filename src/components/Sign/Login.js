@@ -3,7 +3,7 @@ import LeadingPart from "./LeadingPart";
 import FinalPart from "./FinalPart";
 const Login = () => {
   return (
-    <section className="signUp">
+    <section className="sign-container">
       <LeadingPart />
       <FinalPart
         title="Log into N-Power Application Portal"
@@ -13,7 +13,9 @@ const Login = () => {
         buttonValue="Login to Portal"
         msg="I forgot my password?"
         proceed="Reset Password"
-        padding="62px"
+        padding="64.5px"
+        goTo="/forgot-password"
+        showPassField={true}
       />
     </section>
   );

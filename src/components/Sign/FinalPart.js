@@ -1,14 +1,15 @@
 import React from "react";
 import FinalPartDetails from "./FinalPartDetails";
 import SignForm from "./SignForm";
-
+import { motion } from "framer-motion";
+// import { FinalPartVariant, variantProps } from "../motionVariants/varSign";
 const FinalPart = (props) => {
-  const { title, details,  ...signFormData } = props;
+  const { title, details, ...signFormData } = props;
   return (
-    <div className="finalPart">
+    <motion.div className="finalPart">
       <FinalPartDetails {...{ title, details }} />
       <SignForm {...signFormData} />
-    </div>
+    </motion.div>
   );
 };
 
