@@ -1,17 +1,15 @@
 import React from "react";
 import fourPeople from "../assets/people.png";
 import "./signup.css";
+import nPowerLogo from "../assets/npower.jpg";
 
 const LeadingPart = () => {
   return (
-    <div
-      className="leadingPart"
-      // {...variantProps}
-      // variants={leadingPartVariant}
-    >
+    <div className="leadingPart">
       <img
-        src="https://npower.fmhds.gov.ng/uploads/logo.svg"
+        src={nPowerLogo}
         alt=" Nigerian N-Power"
+        className="leadingPart__logo"
       />
       <h3>
         N-Power has changed the lives of over 500,000 youths in all 6
